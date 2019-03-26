@@ -89,6 +89,8 @@ export class CreateComponent implements OnInit {
 
       let item = JSON.parse(localStorage.getItem('cadastroLocal'))[isEdit];
 
+      this.perecivel = item.perecivel;
+
       if (item.unidade == 'un') {
         this.mask = '999';
       }else {
@@ -176,7 +178,7 @@ export class CreateComponent implements OnInit {
       retorno = false;
     }else {
       this.vencido = '';
-      retorno = true;
+      retorno = true; 
     }    
 
     if (this.perecivel){
@@ -193,8 +195,6 @@ export class CreateComponent implements OnInit {
       retorno = false;
 
     if (this.form_create.valid && retorno) {
-
-        console.log(isEdit)
 
         if (isEdit) {
           cadastroLocal[isEdit] = newElem;
