@@ -13,5 +13,6 @@ npm install @angular/animations --save &&
 npm install primeicons --save
 
 ## Após, mandar executar o projeto
-Run 'ng serve' for a dev server. Navigate to `http://localhost:4200/` or use too '-o --port YOUR_PORT' for open in a specific port.
+Execute 'ng serve -o' para iniciar o servidor. Irá abrir o link `http://localhost:4200/`. Caso a porta já esteja utilizada, trocar conforme exemplo:  
+'ng serve -o --port SUA_PORTA'.
 
