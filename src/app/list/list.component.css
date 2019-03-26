@@ -1,0 +1,17 @@
+.listagem td:last-child div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+ 
+.listagem td:first-child {
+    text-align: center;    
+}
+
+@media all and (max-width: 978px) {
+    .listagem { 
+        width: 100%;
+        border-collapse: collapse;
+        overflow-x: auto;
+    }    
+}

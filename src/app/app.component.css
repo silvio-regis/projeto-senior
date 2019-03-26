@@ -1,0 +1,10 @@
+.app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.container {    
+    width: 1020px;
+    margin: 0 auto;
+}

@@ -1,0 +1,76 @@
+<h1>{{titleCreate}}</h1>
+
+<form class="create-form" [formGroup]="form_create">
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-3">
+            <h3>Nome do Item <sup class="rb">*</sup></h3>
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-info"></i></span>
+                <input formControlName="nome" type="text" pInputText [ngClass]="{ 'ng-dirty ng-invalid': isSubmit && checkError('nome') }" placeholder="Nome do Item" >          
+            </div>
+        </div>
+      
+        <div class="ui-g-12 ui-md-4">
+            <h3>Unidade de medida <sup class="rb">*</sup></h3>
+            <div class="ui-inputgroup">
+                <p-selectButton formControlName="unidade" [options]="tipoUnidade" (onChange)="changeUnd($event)"></p-selectButton>         
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g">        
+        <div class="ui-g-12 ui-md-3">
+            <h3>Quantidade</h3>
+            <div class="ui-inputgroup">
+                <p-inputMask formControlName="quantidade" mask="{{mask}}" type="text" placeholder="Quantidade"></p-inputMask>      
+                <span class="ui-inputgroup-addon addon-qtd">{{tipoUnidadeSelected}}</span>
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-3">
+            <h3>Preço <sup class="rb">*</sup></h3>
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon addon-preco">R$</span>
+                <p-inputMask formControlName="preco" mask="9999,99" [ngClass]="{ 'ng-dirty ng-invalid': isSubmit && checkError('preco') }" type="text" placeholder="Preço"></p-inputMask>                   
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <h3>Produto é perecível?</h3>
+            <div class="ui-inputgroup">
+                <p-checkbox formControlName="perecivel" binary="true" (onChange)="changePerecivel()"></p-checkbox>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-3">
+            <h3>Data de validade <sup class="rb">{{obrigatorio}}</sup></h3>
+            <div class="ui-inputgroup">
+                <p-calendar formControlName="validade" dateFormat="dd/mm/yy" id="validade" (onClose)="changeValidade()" [ngClass]="{ 'ng-dirty ng-invalid': isSubmit && checkValidade() }"></p-calendar>
+            </div>
+            <div class="rb">{{vencido}}</div>
+            <div *ngIf="isSubmit && checkValidade()" class="rb">Você precisa indicar uma data de validade!</div> 
+        </div>
+        
+        <div class="ui-g-12 ui-md-3">        
+            <h3>Data de fabricação</h3>
+            <div class="ui-inputgroup">
+                <p-calendar formControlName="fabricacao" dateFormat="dd/mm/yy" id="fabricacao" [ngClass]="{ 'ng-dirty ng-invalid': isSubmit &&  checkFabricacao() }"></p-calendar>
+            </div>            
+            <div class="rb">{{isValidFabricacao}}</div>
+            <div [ngClass]="{ 'show': isSubmit && checkError('fabricacao') && checkError('fabricacao')['required'] }" class="rb hide">Você precisa indicar uma data de fabricação!</div>            
+        </div>
+    </div> 
+    
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-2">                        
+            <p-button label="Enviar dados" type="submit" styleClass="ui-button-success" icon="pi pi-save" (click)="onSubmit($event)"></p-button>
+        </div>
+        <div class="ui-g-12 ui-md-2">            
+            <p-button label="Cancelar" styleClass="ui-button-danger"  icon="pi pi-times"  (click)="onCancel($event)"></p-button>
+        </div>
+    </div> 
+    
+    
+</form>

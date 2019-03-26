@@ -1,0 +1,17 @@
+.rb{
+    color: red;
+    font-weight: bold;
+}
+
+.addon-qtd,
+.addon-preco {
+    font-size: 14px;
+}
+
+h3 {
+    position: relative;
+}
+
+h3 sup {
+    position: absolute;
+}

@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    /* margin: 0; */
+    font-family: "Open Sans", "Helvetica Neue", sans-serif !important;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}

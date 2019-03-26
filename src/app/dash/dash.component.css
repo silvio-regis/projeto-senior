@@ -1,0 +1,16 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 393px;
+}
+
+.card .ui-card-shadow,
+body .ui-card{
+    height: 100%;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
+}
